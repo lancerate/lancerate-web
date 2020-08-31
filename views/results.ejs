@@ -1,21 +1,26 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lexend Deca">
 <link rel="stylesheet" href="/css/dashboard.css">
-<h1>Portfolio review results</h1>
-<h5>Welcome <%- name %></h5>
-<%- include('./partials/messages') %><br>
-<a href="/post">Post</a>&nbsp;&nbsp;&nbsp;<a href="/profile">Profile</a>&nbsp;&nbsp;&nbsp;<a href="/dashboard">Dashboard</a>&nbsp;&nbsp;&nbsp;<a href="/leaderboard">Leaderboard</a>
-<h3>Portfolio</h3>
-<br><br>
-<div class="col-sm-2">
-    <div class="card" style="width: 18rem;">
-        <div class="card-body">
-          <p class="card-text"><%- post.message %><br>Category: <%- post.category %></p>
-          <a target="_blank" href="<%- post.portfolio_link %>" class="btn btn-primary">Portfolio Link</a>
-        </div>
+<nav class="navbar">
+  <img class="logo" src="https://cdn.discordapp.com/attachments/745141823210782720/749743996519317594/Group_65.png">
+  <a class="nav-item" href="/dashboard">Dashboard</a>
+  <a class="nav-item" href="/leaderboard">Leaderboard</a>
+  <a class="nav-item" href="/profile">Profile</a>
+  <a href="/post"><button>Post</button></a>
+</nav>
+<div class="card-grid">
+  <div class="card" style="height: 448px;">
+    <h2>Message</h2><br>
+    <p><%- post.message %></p>
+    <h2>Portfolio</h2><br>
+    <p>Please review my portfolio at<br> <%- post.portfolio_link %></p>
+    <h2>Reviewers</h2><br>
+    <p><%- post.reviewers %> reviewed your portfolio.</p>
+    <h2>Value</h2><br>
+    <p>The average of all the values given by <%- post.reviewers %> users is <span style="color:black"><%- avg_value %></span> </p>
+    <div class="bottom" style="margin-top: 0px;width:348px;"> 
+      <a target="_blank" href="<%- post.portfolio_link %>"><button style="margin-left:80px">Review</button></a>
     </div>
-</div><br><br>
-<h3>Number of Reviews: <%- post.reviewers %></h3>
-<h3>The amount you should quote according to <%- post.reviewers %> users is <%- avg_value %></h3>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </div>
+</div>
+
