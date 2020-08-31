@@ -1,0 +1,58 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="/css/dashboard.css">
+<h1>Profile</h1>
+<h5>Welcome <%- name %></h5>
+<%- include('./partials/messages') %><br>
+<a href="/post">Post</a>&nbsp;&nbsp;&nbsp;<a href="/profile">Profile</a>&nbsp;&nbsp;&nbsp;<a href="/dashboard">Dashboard</a>&nbsp;&nbsp;&nbsp;<a href="/leaderboard">Leaderboard</a>
+<% if(user_history.length == 0) { %> 
+    <br><br>
+    <h3>Portfolios you have sent for review</h3><br>
+    <h5>None</h5>
+  <% } else { %> 
+    <br><br>
+    <h3>Portfolios you have sent for review</h3><br>
+<% }%>
+<div class="row">
+  <% if(user_history.length == 0) { %> 
+    <% } %>
+    <% for (let i = 0; i < user_history.length; i++) { %>
+      <div class="col-sm-2">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+            <form action="/results" method="POST">
+              <p class="card-text"><%- user_history[i].message %><br>Category: <%- user_history[i].category %></p>
+              <a target="_blank" href="<%- user_history[i].portfolio_link %>" class="btn btn-primary">Portfolio Link</a>
+              <input name="post_id" type="hidden" value="<%- user_history[i].id %>">
+              <button type="submit" style="margin-left: 30px;" class="btn btn-primary">Results</button>
+            </form>
+            </div>
+        </div>
+      </div>
+    <% } %>
+</div><br>
+<% if(user_reviews.length == 0) { %> 
+    <br><br>
+    <h3>Portfolios you have reviewed</h3><br>
+    <h5>None</h5>
+  <% } else { %> 
+    <br><br>
+    <h3>Portfolios you have reviewed</h3><br>
+<% }%>
+<div class="row">
+    <% if(user_reviews.length == 0) { %> 
+    <% } %>
+    <% for (let i = 0; i < user_reviews.length; i++) { %>
+      <div class="col-sm-2">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <p class="card-text"><%- user_reviews[i].message %><br>Category: <%- user_reviews[i].category %></p>
+              <a target="_blank" href="<%- user_reviews[i].portfolio_link %>" class="btn btn-primary">Portfolio Link</a>
+            </div>
+        </div>
+      </div>
+    <% } %>
+</div>
+<br><br>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

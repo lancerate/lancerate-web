@@ -1,0 +1,20 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lexend Deca">
+<link rel="stylesheet" type="text/css" href="/css/register.css" />
+<div class="register-div">
+    <h1>Register</h1>
+    <%- include('./partials/messages') %>
+    <form action="/register" method="POST">
+        <input placeholder="Name" name="name" type="text" value="<%= typeof name != 'undefined' ? name : '' %>"><br><br>
+        <input placeholder="Username" name="username" type="text" value="<%= typeof username != 'undefined' ? username : '' %>"><br><br>
+        <input placeholder="Email" type="email" name="email" value="<%= typeof email != 'undefined' ? email : '' %>"><br><br>
+        <div class="inline">
+            <input style="width:190px;" placeholder="Age" name="age" min="16" type="number" value="<%= typeof age != 'undefined' ? age : '' %>">
+            <input style="width:190px;margin-left:20px;" placeholder="Gender" name="gender" type="text" value="<%= typeof gender != 'undefined' ? gender : '' %>">
+        </div><br>
+        <input placeholder="Password" name="password" type="password" value="<%= typeof password != 'undefined' ? password : '' %>"><br><br>
+        <button class="register-button" type="submit">Register</button>
+    </form>
+    <br>
+    <img src="/images/or.png"><br><br>
+    <a href="/login"><button id="login-button">Login to an existing account</button></a>
+</div>

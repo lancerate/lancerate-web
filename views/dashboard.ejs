@@ -1,0 +1,114 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lexend Deca">
+<link rel="stylesheet" href="/css/dashboard.css">
+<nav class="navbar">
+  <img class="logo" src="https://cdn.discordapp.com/attachments/745141823210782720/749743996519317594/Group_65.png">
+  <a class="nav-item" href="/dashboard">Dashboard</a>
+  <a class="nav-item" href="/leaderboard">Leaderboard</a>
+  <a class="nav-item" href="/profile">Profile</a>
+  <a href="/post"><button>Post</button></a>
+</nav>
+<div class="card-grid">
+  <% if(webd_posts.length == 0) { %> 
+    <% } else { %> 
+      <h1>Web Development</h1>
+    <% }%>
+  <div class="inline">
+    <% if(webd_posts.length == 0) { %> 
+      <% } %>
+      <% for (let i = 0; i < webd_posts.length; i++) { %> 
+        <form action="/rate-portfolio" method="POST">
+        <div class="card">
+          <h2>Message</h2>
+          <p><%- webd_posts[i].message %></p>
+          <h2>Identity</h2>
+          <p>Hi, I am a 14 year old.</p>
+          <h2>Field Experience</h2>
+          <p><%- webd_posts[i].field_experience %> years</p>
+          <h2>Portfolio</h2>
+          <p>Please review my portfolio at<br> <%- webd_posts[i].portfolio_link %></p>
+          <div class="bottom">
+            <a target="_blank" href="<%- webd_posts[i].portfolio_link %>"><button>Review</button></a>
+            <input name="post_id" type="hidden" value="<%- webd_posts[i].id %>" >
+            <a><button type="submit">Rate</button></a>
+          </div>
+        </div>
+      </form>
+      <% } %>
+  </div>
+  <% if(appd_posts.length == 0) { %> 
+    <% } else { %> 
+      <br><br>
+      <h1>App Development</h1>
+    <% }%>
+  <div class="inline">
+    <% if(appd_posts.length == 0) { %> 
+      <% } %>
+      <% for (let i = 0; i < appd_posts.length; i++) { %> 
+        <div class="card">
+          <h2>Message</h2>
+          <p><%- appd_posts[i].message %></p>
+          <h2>Identity</h2>
+          <p>Hi, I am a 14 year old.</p>
+          <h2>Field Experience</h2>
+          <p><%- appd_posts[i].field_experience %> years</p>
+          <h2>Portfolio</h2>
+          <p>Please review my portfolio at<br> <%- appd_posts[i].portfolio_link %></p>
+          <div class="bottom">
+            <a target="_blank" href="<%- appd_posts[i].portfolio_link %>"><button>Review</button></a>
+            <button>Rate</button>
+          </div>
+        </div>
+      <% } %>
+    </div>
+    <% if(design_posts.length == 0) { %> 
+      <% } else { %> 
+        <br><br>
+        <h1>Design</h1>
+      <% }%>
+    <div class="inline">
+      <% if(design_posts.length == 0) { %> 
+        <% } %>
+        <% for (let i = 0; i < design_posts.length; i++) { %> 
+          <div class="card">
+            <h2>Message</h2>
+            <p><%- design_posts[i].message %></p>
+            <h2>Identity</h2>
+            <p>Hi, I am a 14 year old.</p>
+            <h2>Field Experience</h2>
+            <p><%- design_posts[i].field_experience %> years</p>
+            <h2>Portfolio</h2>
+            <p>Please review my portfolio at<br> <%- design_posts[i].portfolio_link %></p>
+            <div class="bottom">
+              <a target="_blank" href="<%- design_posts[i].portfolio_link %>"><button>Review</button></a>
+              <button>Rate</button>
+            </div>
+          </div>
+        <% } %>
+    </div>
+    <% if(ui_posts.length == 0) { %> 
+      <% } else { %> 
+        <br><br>
+        <h1>UI/UX Designs</h1>
+      <% }%>
+    <div class="inline">
+      <% if(ui_posts.length == 0) { %> 
+        <% } %>
+        <% for (let i = 0; i < ui_posts.length; i++) { %> 
+          <div class="card">
+            <h2>Message</h2>
+            <p><%- ui_posts[i].message %></p>
+            <h2>Identity</h2>
+            <p>Hi, I am a 14 year old.</p>
+            <h2>Field Experience</h2>
+            <p><%- ui_posts[i].field_experience %> years</p>
+            <h2>Portfolio</h2>
+            <p>Please review my portfolio at<br> <%- ui_posts[i].portfolio_link %></p>
+            <div class="bottom">
+              <a target="_blank" href="<%- ui_posts[i].portfolio_link %>"><button>Review</button></a>
+              <button>Rate</button>
+            </div>
+          </div>
+        <% } %>
+    </div>
+</div>
+<br><br><br>

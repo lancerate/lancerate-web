@@ -1,0 +1,37 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lexend Deca">
+<link rel="stylesheet" type="text/css" href="/css/categories.css" />
+<div class="choices">
+    <h1>Choose your interests</h1>
+    <%- include('./partials/messages') %><br>
+    <p>you will review portfolios based on your areas of interests.</p>
+    <div class="inline">
+        <div>
+            <form action="/choose-category" method="POST">
+            <input type="hidden" name="id" value="<%- id %>">
+            <input style="margin-top: 10px;" type="checkbox" id="category1" name="categories" value="Design" checked>
+            <label for="category1">Design</label><br>
+            <input type="checkbox" id="category2" name="categories" value="Web Development">
+            <label for="category2">Web Development</label><br>
+            <input type="checkbox" id="category3" name="categories" value="App Development">
+            <label for="category3">App Development</label><br>
+            <input type="checkbox" id="category3" name="categories" value="UI/UX Design">
+            <label for="category3">UI/UX Design</label><br>
+            <input type="checkbox" id="category3" name="categories" value="Content Writing">
+            <label for="category3">Content Writing</label>
+        </div>
+        <div style="margin-left: 100px">
+            <input style="margin-top: 10px;" type="checkbox" id="category1" name="categories" value="Design">
+            <label for="category1">Design</label><br>
+            <input type="checkbox" id="category2" name="categories" value="Web Development">
+            <label for="category2">Web Development</label><br>
+            <input type="checkbox" id="category3" name="categories" value="App Development">
+            <label for="category3">App Development</label><br>
+            <input type="checkbox" id="category3" name="categories" value="UI/UX Design">
+            <label for="category3">UI/UX Design</label><br>
+            <input type="checkbox" id="category3" name="categories" value="Content Writing">
+            <label for="category3">Content Writing</label>
+        </div>
+    </div><br><br><br>
+    <button class="register-button" type="submit">Proceed</button>
+</form>
+</div>

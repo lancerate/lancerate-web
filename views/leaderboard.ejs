@@ -1,0 +1,22 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lexend Deca">
+<link rel="stylesheet" href="/css/leaderboard.css">
+<nav class="navbar">
+  <img class="logo" src="https://cdn.discordapp.com/attachments/745141823210782720/749743996519317594/Group_65.png">
+  <a class="nav-item" href="/dashboard">Dashboard</a>
+  <a class="nav-item" href="/leaderboard">Leaderboard</a>
+  <a class="nav-item" href="/profile">Profile</a>
+  <a href="/post"><button>Post</button></a>
+</nav>
+<h1 class="header">Leaderboard</h1>
+<table>
+  <tr>
+    <th>Username</th>
+    <th>Reviews Done</th>
+  </tr>
+  <% for (let i = 0; i < users.length; i++) { %> 
+    <tr>
+      <td><%- users[i].username %></td>
+      <td><%- users[i].reviews_done %></td>
+    </tr>
+    <% } %>
+</table>

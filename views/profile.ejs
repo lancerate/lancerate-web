@@ -1,0 +1,77 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lexend Deca">
+<link rel="stylesheet" href="/css/profile.css">
+<nav class="navbar">
+  <img class="logo" src="https://cdn.discordapp.com/attachments/745141823210782720/749743996519317594/Group_65.png">
+  <a class="nav-item" href="/dashboard">Dashboard</a>
+  <a class="nav-item" href="/leaderboard">Leaderboard</a>
+  <a class="nav-item" href="/profile">Profile</a>
+  <button>Post</button>
+</nav>
+<div class="profile-div">
+  <img src="https://cdn.discordapp.com/attachments/745479399901757480/749879985908744242/untitled_3.jpg">
+  <h2><%- name %></h2>
+  <h3>@<%- username %></h3>
+  <button>Edit profile</button>
+</div>
+<div class="card-grid">
+  <div class="card-grid">
+    <% if(user_history.length == 0) { %> 
+      <% } else { %> 
+        <h1>Your posts</h1>
+      <% }%>
+    <div class="inline">
+      <% if(user_history.length == 0) { %> 
+        <% } %>
+        <% for (let i = 0; i < user_history.length; i++) { %> 
+          <div class="card">
+            <h2>Message</h2>
+            <p><%- user_history[i].message %></p>
+            <h2>Identity</h2>
+            <p>Hi, I am a 14 year old.</p>
+            <h2>Field Experience</h2>
+            <p><%- user_history[i].field_experience %> years</p>
+            <h2>Portfolio</h2>
+            <p>Please review my portfolio at<br> <%- user_history[i].category %></p>
+            <h2>Category</h2>
+            <p><%- user_history[i].portfolio_link %></p>
+            <form action="/results" method="POST">
+            <div class="bottom">
+              <a target="_blank" href="<%- user_history[i].portfolio_link %>"><button>Review</button></a>
+              <input type="hidden" value="<%- user_history[i].id %>" name="post_id">
+              <button type="submit">Results</button>
+            </div>
+          </form>
+          </div>
+        <% } %>
+    </div>
+    <% if(user_reviews.length == 0) { %> 
+      <% } else { %> 
+        <br><br>
+        <h1>Your review history</h1>
+      <% }%>
+    <div class="inline">
+      <% if(user_reviews.length == 0) { %> 
+        <% } %>
+        <% for (let i = 0; i < user_reviews.length; i++) { %> 
+          <div class="card">
+            <h2>Message</h2>
+            <p><%- user_reviews[i].message %></p>
+            <h2>Identity</h2>
+            <p>Hi, I am a 14 year old.</p>
+            <h2>Field Experience</h2>
+            <p><%- user_reviews[i].field_experience %> years</p>
+            <h2>Portfolio</h2>
+            <p>Please review my portfolio at<br> <%- user_reviews[i].category %></p>
+            <h2>Category</h2>
+            <p><%- user_reviews[i].portfolio_link %></p>
+            <div class="bottom">
+              <a target="_blank" href="<%- user_reviews[i].portfolio_link %>"><button style="margin-left:80px">Review</button></a>
+            </div>
+          </div>
+        <% } %>
+      </div>
+  </div>
+</div>
+<br><br><br>
+<a href="/logout"><button class="logout">Logout</button></a>
+<br><br><br>

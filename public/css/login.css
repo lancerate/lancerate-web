@@ -1,0 +1,72 @@
+@font-face {
+    font-family: 'Airbnb';
+    src: URL('../fonts/AirbnbCerealExtraBold.ttf') format('truetype');
+}
+
+body {
+    background-image: url('../images/bg.png');
+    background-size: cover;
+    padding-left: 300px;
+}
+
+.login-div p {
+    color: white;
+    font-family: 'Lexend Deca';
+    font-size: 1.2rem;
+    margin-top: -15px;
+}
+
+.login-div {
+    margin-top: 25vh;
+}
+
+.login-div h1 {
+    font-family: 'Airbnb';
+    font-size: 3rem; 
+    color: white;
+}
+
+.login-div input {
+    height: 50px;
+    width: 400px;
+    background-color: white;
+    opacity: 0.3;
+    border: none;
+    font-family: 'Lexend Deca';
+    font-size: 1.5rem;
+    color: black;
+    border-radius: 5px;
+    padding-left: 30px;
+}
+
+.login-button {
+    height: 40px;
+    width: 150px;
+    display: flex;
+    background-color: white;
+    font-family: 'Lexend Deca';
+    font-size: 1.3rem;
+    border: none;
+    color: #F7575D;
+    margin-left:250px;
+    text-align: center;
+    padding-left: 45px;
+    padding-top: 5px;
+}
+
+.login-div img {
+    width: 400px;
+}
+
+#register-button {
+    height: 35px;
+    width: 200px;
+    font-family: 'Lexend Deca';
+    font-size: 1rem;
+    border: none;
+    background-color: white;
+    opacity: 0.3;
+    margin-left:100px;
+    padding-left: 10px;
+    padding-top: 5px;
+}

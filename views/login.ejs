@@ -1,0 +1,14 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lexend Deca">
+<link rel="stylesheet" type="text/css" href="/css/login.css" />
+<div class="login-div">
+    <h1>Login</h1>
+    <%- include('./partials/messages') %>
+    <form action="/login" method="POST">
+        <input placeholder="Username" name="username" type="text" value="<%= typeof username != 'undefined' ? username : '' %>"><br><br>
+        <input placeholder="Password" name="password" type="password" value="<%= typeof password != 'undefined' ? password : '' %>"><br><br>
+        <button class="login-button" type="submit">Login</button>
+    </form>
+    <br><br>
+    <img src="/images/or.png"><br><br>
+    <a href="/register"><button id="register-button">Create a new account</button></a>
+</div>

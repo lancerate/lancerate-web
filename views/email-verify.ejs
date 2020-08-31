@@ -1,0 +1,13 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lexend Deca">
+<link rel="stylesheet" type="text/css" href="/css/register.css" />
+<div class="register-div" style="margin-top: 25vh;">
+    <h1>Email Verification</h1>
+    <%- include('./partials/messages') %>
+    <p>A verification code was sent to <%- email %>.<br>Enter it below to verify your account.</p>
+    <form action="/email-verify" method="POST">
+        <input type="hidden" name="email" value="<%- email %>">
+        <input type="hidden" name="id" value="<%- id %>">
+        <input placeholder="Verification Code" name="code" type="text" value="<%= typeof code != 'undefined' ? code : '' %>" ><br><br>
+        <button class="register-button" type="submit" style="padding-left: 40px;">Verify</button>
+    </form>
+</div>

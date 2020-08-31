@@ -1,0 +1,172 @@
+body {
+    background-color: #f3f3f3;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.navbar {
+    height: 50px;
+    font-family: 'Lexend Deca';
+    font-size:1.5rem;
+    padding-top: 40px;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+}
+
+.logo {
+    height: 80px;
+    width: 120px;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: #F7575D;
+    margin-left: 100px;
+}
+
+.nav-item:hover {
+    bottom: 3px;
+    border-color: #F7575D;
+    border-width: 0 0 2px;
+    border-style: solid;
+}
+
+.navbar button {
+    margin-left:650px;
+    border: none;
+    font-family: 'Lexend Deca';
+    height: 60px;
+    width:140px;
+    background-color: #FBB5B8;
+    color: #F7575D;
+    font-size: 1.5rem;
+    border-radius: 10px;
+}
+
+.card-grid {
+    font-family: 'Lexend Deca';
+    padding-top: 40px;
+    padding-left: 80px;
+}
+
+.card-grid h1 {
+    color: #F7575D;
+}
+
+.card {
+    margin-left: 30px;
+    height: 423px;
+    width: 340px;
+    border-style: solid;
+    border-radius: 10px;
+    border-color: #F7575D;
+    padding-top:5px;
+    border-width: 1.8px;
+    margin-top: 30px;
+}
+
+.card h2 {
+    color: #F7575D;
+    font-size: 1.3rem;
+    font-weight: normal;
+    padding-left: 20px;
+}
+
+.card p {
+    color: #FBB5B8;
+    font-size: 1.1rem;
+    font-weight: normal;
+    margin-top: -15px;
+    padding-left: 20px;
+}
+
+.inline {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+}
+
+.profile-div {
+    display: block;
+    margin: auto;
+    height: 400px;
+    margin-top: 150px;
+    width: 80%;
+    background-color: #FBB5B8;
+    border-radius: 20px;
+}
+
+.profile-div img {
+    height: 180px;
+    width:200px;
+    border-radius: 50%;
+    margin-left: 40%;
+    margin-top: 2rem;
+}
+
+.profile-div h2 {
+    margin-left: 40%;
+    font-family: 'Lexend Deca';
+    font-size:2rem;
+    font-weight: normal;
+}
+
+.profile-div h3 {
+    margin-left: 41%;
+    font-family: 'Lexend Deca';
+    font-size:1.5rem;
+    font-weight: normal;
+    margin-top: -20px;
+    color: #F87277;
+}
+
+.profile-div button {
+    margin-left: 41%;
+    height: 40px;
+    width: 200px;
+    font-family: 'Lexend Deca';
+    font-size:1.5rem;
+    font-weight: normal;
+    margin-top: -10px;
+    color: #F87277;
+    background-color: transparent;
+    border-style: solid;
+    border-color: #F87277;
+    border-width: 2px;
+    border-radius: 5px;
+}
+
+.bottom {
+    background-color: #F7575D;
+    height: 55px;
+    width: 332px;
+    padding-left: 10px!important;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    margin-top: -10px;
+}
+
+.bottom button {
+    height: 40px;
+    width: 140px;
+    margin-right: 10px;
+    border: none;
+    font-family: 'Lexend Deca';
+    margin-top: 10px;
+    background-color: white;
+    opacity: 0.3;
+    font-size: 1.3rem;
+}
+
+.logout {
+    margin-left:650px;
+    border: none;
+    font-family: 'Lexend Deca';
+    height: 60px;
+    width:140px;
+    background-color: #FBB5B8;
+    color: #F7575D;
+    font-size: 1.5rem;
+    border-radius: 10px;
+}

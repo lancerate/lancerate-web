@@ -1,0 +1,29 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lexend Deca">
+<link rel="stylesheet" href="/css/post.css">
+<nav class="navbar">
+  <img class="logo" src="https://cdn.discordapp.com/attachments/745141823210782720/749743996519317594/Group_65.png">
+  <a class="nav-item" href="/dashboard">Dashboard</a>
+  <a class="nav-item" href="/leaderboard">Leaderboard</a>
+  <a class="nav-item" href="/profile">Profile</a>
+  <a href="/post"><button>Post</button></a>
+</nav>
+<div class="post-div">
+<h1>Post your portfolio</h1>
+<form action="/post" method="POST">
+    <h2>Message</h2>
+    <input required style="height: 100px;" name="message" type="text" value="<%= typeof message != 'undefined' ? message : '' %>">
+    <h2>Field Experience (yrs)</h2>
+    <input required style="width: 250px" name="field_experience" type="number" min="0" value="<%= typeof field_experience != 'undefined' ? field_experience : '' %>">
+    <h2>Category</h2>
+    <select id="categories" name="categories">
+        <option value="App Development">App Development</option>
+        <option value="Web Development">Web Development</option>
+        <option value="Design">Design</option>
+        <option value="UI/UX Design">UI/UX Design</option>
+    </select>
+    <h2>Portfolio Link</h2>
+    <input required name="portfolio_link" type="text" value="<%= typeof portfolio_link != 'undefined' ? portfolio_link : '' %>">
+    <button class="login-button" type="submit">SUBMIT</button>
+</form>
+</div>
+<br><br><br>
