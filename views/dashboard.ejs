@@ -27,9 +27,10 @@
           <h2>Portfolio</h2>
           <p>Please review my portfolio at<br> <%- webd_posts[i].portfolio_link %></p>
           <div class="bottom">
-            <a target="_blank" href="<%- webd_posts[i].portfolio_link %>"><button>Review</button></a>
             <input name="post_id" type="hidden" value="<%- webd_posts[i].id %>" >
-            <a><button type="submit">Rate</button></a>
+            <button style="margin-left: 20px;" type="submit">Rate</button>
+          </form>
+            <a target="_blank" href="<%- webd_posts[i].portfolio_link %>"><button type="button">Review</button></a>
           </div>
         </div>
       </form>
@@ -44,6 +45,7 @@
     <% if(appd_posts.length == 0) { %> 
       <% } %>
       <% for (let i = 0; i < appd_posts.length; i++) { %> 
+        <form action="/rate-portfolio" method="POST">
         <div class="card">
           <h2>Message</h2>
           <p><%- appd_posts[i].message %></p>
@@ -54,8 +56,10 @@
           <h2>Portfolio</h2>
           <p>Please review my portfolio at<br> <%- appd_posts[i].portfolio_link %></p>
           <div class="bottom">
+            <input name="post_id" type="hidden" value="<%- appd_posts[i].id %>" >
+            <button style="margin-left: 20px;" type="submit">Rate</button>
+          </form>
             <a target="_blank" href="<%- appd_posts[i].portfolio_link %>"><button>Review</button></a>
-            <button>Rate</button>
           </div>
         </div>
       <% } %>
@@ -69,6 +73,7 @@
       <% if(design_posts.length == 0) { %> 
         <% } %>
         <% for (let i = 0; i < design_posts.length; i++) { %> 
+          <form action="/rate-portfolio" method="POST">
           <div class="card">
             <h2>Message</h2>
             <p><%- design_posts[i].message %></p>
@@ -79,8 +84,10 @@
             <h2>Portfolio</h2>
             <p>Please review my portfolio at<br> <%- design_posts[i].portfolio_link %></p>
             <div class="bottom">
+              <input name="post_id" type="hidden" value="<%- design_posts[i].id %>" >
+              <button style="margin-left: 20px;" type="submit">Rate</button>
+            </form>
               <a target="_blank" href="<%- design_posts[i].portfolio_link %>"><button>Review</button></a>
-              <button>Rate</button>
             </div>
           </div>
         <% } %>
@@ -94,6 +101,7 @@
       <% if(ui_posts.length == 0) { %> 
         <% } %>
         <% for (let i = 0; i < ui_posts.length; i++) { %> 
+          <form action="/rate-portfolio" method="POST">
           <div class="card">
             <h2>Message</h2>
             <p><%- ui_posts[i].message %></p>
@@ -104,8 +112,10 @@
             <h2>Portfolio</h2>
             <p>Please review my portfolio at<br> <%- ui_posts[i].portfolio_link %></p>
             <div class="bottom">
+              <input name="post_id" type="hidden" value="<%- ui_posts[i].id %>" >
+              <button style="margin-left: 20px;" type="submit">Rate</button>
+            </form>
               <a target="_blank" href="<%- ui_posts[i].portfolio_link %>"><button>Review</button></a>
-              <button>Rate</button>
             </div>
           </div>
         <% } %>

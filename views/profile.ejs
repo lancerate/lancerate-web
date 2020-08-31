@@ -5,13 +5,14 @@
   <a class="nav-item" href="/dashboard">Dashboard</a>
   <a class="nav-item" href="/leaderboard">Leaderboard</a>
   <a class="nav-item" href="/profile">Profile</a>
-  <button>Post</button>
+  <a href="/post"><button>Post</button></a>
 </nav>
 <div class="profile-div">
   <img src="https://cdn.discordapp.com/attachments/745479399901757480/749879985908744242/untitled_3.jpg">
   <h2><%- name %></h2>
   <h3>@<%- username %></h3>
-  <button>Edit profile</button>
+  <button>Edit profile</button><br><br>
+  <a href="/logout"><button>Logout</button></a>
 </div>
 <div class="card-grid">
   <div class="card-grid">
@@ -31,12 +32,12 @@
             <h2>Field Experience</h2>
             <p><%- user_history[i].field_experience %> years</p>
             <h2>Portfolio</h2>
-            <p>Please review my portfolio at<br> <%- user_history[i].category %></p>
+            <p>Please review my portfolio at<br> <%- user_history[i].portfolio_link %></p>
             <h2>Category</h2>
-            <p><%- user_history[i].portfolio_link %></p>
+            <p><%- user_history[i].category %></p>
             <form action="/results" method="POST">
             <div class="bottom">
-              <a target="_blank" href="<%- user_history[i].portfolio_link %>"><button>Review</button></a>
+              <a target="_blank" href="<%- user_history[i].portfolio_link %>"><button style="margin-left: 20px;" type="button">Review</button></a>
               <input type="hidden" value="<%- user_history[i].id %>" name="post_id">
               <button type="submit">Results</button>
             </div>
@@ -61,9 +62,9 @@
             <h2>Field Experience</h2>
             <p><%- user_reviews[i].field_experience %> years</p>
             <h2>Portfolio</h2>
-            <p>Please review my portfolio at<br> <%- user_reviews[i].category %></p>
+            <p>Please review my portfolio at<br> <%- user_reviews[i].portfolio_link %></p>
             <h2>Category</h2>
-            <p><%- user_reviews[i].portfolio_link %></p>
+            <p><%- user_reviews[i].category %></p>
             <div class="bottom">
               <a target="_blank" href="<%- user_reviews[i].portfolio_link %>"><button style="margin-left:80px">Review</button></a>
             </div>
@@ -73,5 +74,4 @@
   </div>
 </div>
 <br><br><br>
-<a href="/logout"><button class="logout">Logout</button></a>
 <br><br><br>
