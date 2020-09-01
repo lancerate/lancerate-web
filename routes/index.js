@@ -9,6 +9,7 @@ const nodemailer = require('nodemailer')
 let consCriticism = require('../config/constructiveCriticismAlgo')
 const stats = require('stats-lite')
 let reputation = require('../config/reputation')
+const { json } = require('express');
 
 const transporter = nodemailer.createTransport({
     service: 'gmail',
@@ -381,10 +382,31 @@ router.get('/profile', ensureAuthenticated, (req, res) => {
 router.post('/results', ensureAuthenticated, (req, res) => {
     const { post_id } = req.body;
     Post.findById(post_id, function(err, post) {
+        const reviews = post.reviews;
+        let reviews_array = [];
+        let rating = stats.mode(reviews_array);
+        reviews.forEach((element) => {
+            reviews_array.push(Number(element['rating']))
+        })
+        const feedback_messages = post.recommendations
+        console.log(reviews_array)
+        console.log(rating)
+        var counts = {};
+        for (var i = 0; i < reviews_array.length; i++) {
+        var num = reviews_array[i];
+        counts[num] = counts[num] ? counts[num] + 1 : 1;
+        }
+        var review_data = []
+        for (const [key, value] of Object.entries(counts)) {
+            review_data.push({x: Number(key), value: value})
+          }
+        console.log(review_data)
         res.render('results', {
+            feedback_messages: feedback_messages,
             name: req.user.username,
             post: post,
-            rating: post.rating
+            rating: post.rating,
+            review_data: review_data
         })
     })
 })

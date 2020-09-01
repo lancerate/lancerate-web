@@ -1,0 +1,152 @@
+body {
+    background-color: #f3f3f3;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.navbar {
+    height: 50px;
+    font-family: 'Lexend Deca';
+    font-size:1.5rem;
+    padding-top: 40px;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+}
+
+.logo {
+    height: 80px;
+    width: 120px;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: #121212;
+    margin-left: 100px;
+}
+
+.nav-item:hover {
+    bottom: 3px;
+    border-color: #121212;
+    border-width: 0 0 2px;
+    border-style: solid;
+}
+
+.navbar button {
+    margin-left: 450px;
+    border: none;
+    font-family: 'Lexend Deca';
+    height: 60px;
+    width:140px;
+    background-color: #121212;
+    color: white;
+    font-size: 1.5rem;
+    border-radius: 10px;
+}
+
+.card-grid {
+    font-family: 'Lexend Deca';
+    padding-top: 90px;
+    padding-left: 200px;
+}
+
+.card-grid h1 {
+    color: #121212;
+}
+
+.card {
+    margin-left: 30px;
+    height: 422px;
+    width: 350px;
+    border-style: solid;
+    border-radius: 10px;
+    border-color: #121212;
+    padding-top:5px;
+    border-width: 1.8px;
+    margin-top: 30px;
+}
+
+.card h2 {
+    color: #121212;
+    font-size: 1.3rem;
+    font-weight: normal;
+    padding-left: 20px;
+}
+
+.card p {
+    color: #a3a3a3;
+    font-size: 1.1rem;
+    font-weight: normal;
+    padding-left: 20px;
+    margin-top: -15px;
+}
+
+.inline {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+}
+
+.bottom {
+    background-color: #121212;
+    height: 55px;
+    width: 342px;
+    padding-left: 10px!important;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    margin-top: 75px;
+}
+
+.bottom button {
+    height: 40px;
+    width: 140px;
+    margin-right: 10px;
+    border: none;
+    font-family: 'Lexend Deca';
+    margin-top: 10px;
+    background-color:white;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+.bottom button :hover{
+    cursor: pointer;
+}
+
+.card a {
+    color: #F7575D
+}
+
+.feedback-card {
+    margin-left: 100px;
+    height: 422px;
+    width: 500px;
+    border-style: solid;
+    border-radius: 10px;
+    border-color: #121212;
+    padding-top:5px;
+    border-width: 1.8px;
+    margin-top: 30px;
+}
+
+.feedback-card h2 {
+    color: #121212;
+    font-size: 1.4rem;
+    font-weight: normal;
+    margin-left: 40px;
+}
+
+.feedback-card p {
+    color: #121212;
+    font-size: 1rem;
+    font-weight: normal;
+    margin-left: 40px;
+}
+
+
+hr {
+    text-align:left;
+    margin-left:0;
+    height: 1px; 
+    background: black;
+}
