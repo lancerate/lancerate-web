@@ -34,10 +34,6 @@ const PostSchema = new mongoose.Schema({
         required: false,
         default: 0
     },
-    level: {
-        type: String,
-        required: false
-    },
     reviewers_usernames: {
         type: Array,
         required: false
