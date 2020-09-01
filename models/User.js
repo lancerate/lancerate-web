@@ -49,6 +49,18 @@ const UserSchema = new mongoose.Schema({
     badge: {
         type: Boolean,
         default: false
+    },
+    premium: {
+        type: Boolean,
+        default: false
+    },
+    ratingData: {
+        type: Object,
+        required: true
+    },
+    reputation: {
+        type: Number,
+        default: 0
     }
 })
 

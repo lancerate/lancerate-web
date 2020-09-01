@@ -8,6 +8,7 @@ const { ensureAuthenticated } = require('../config/auth');
 const nodemailer = require('nodemailer')
 let consCriticism = require('../config/constructiveCriticismAlgo')
 const stats = require('stats-lite')
+let reputation = require('../config/reputation')
 
 const transporter = nodemailer.createTransport({
     service: 'gmail',
@@ -291,39 +292,64 @@ router.post('/post', ensureAuthenticated, (req, res) => {
 
 router.post('/rate', ensureAuthenticated, (req, res) => {
     const { post_id, rating, recommendation } = req.body
-    consCriticism(recommendation).then((recommendation => {
-        console.log(recommendation)
-        Post.findById(post_id, function(err, post) {
-            post.reviewers ++
-            post.save(function (err) {
-                if(err) {
-                    console.log(err)
-                }
-                Post.findByIdAndUpdate(post_id, { $push: { reviews: {'username': req.user.username, 'rating': rating }, recommendations: {'username': req.user.username, 'recommendation': recommendation}  } }, function(err, success) {
+    reputation(req.user.username, post_id, rating).then(() => {
+        consCriticism(recommendation).then((recommendation => {
+            Post.findById(post_id, function(err, post) {
+                post.reviewers ++
+                post.save(function (err) {
                     if(err) {
                         console.log(err)
                     }
-                    Post.findByIdAndUpdate(post_id, { $push: { reviewers_usernames: req.user.username } }, function(err, success) {
+                    Post.findByIdAndUpdate(post_id, { $push: { reviews: {'username': req.user.username, 'rating': rating }, recommendations: {'username': req.user.username, 'recommendation': recommendation}  } }, function(err, success) {
                         if(err) {
                             console.log(err)
                         }
-                        User.findById(req.user.id, function(err, user) {
-                            user.reviews_done = user.reviews_done + 1
-                            user.save(function(err) {
-                                if(err) {
-                                    console.log(err) 
-                                }
-                                req.flash('success_msg', 'Your review was submitted');
-                                res.redirect('/dashboard')
+                        if(success) {
+                            Post.findById(post_id, (err, post) => {
+                                console.log(post)
+                                const reviews = post.reviews;
+                                let reviews_array = [];
+                                reviews.forEach((element) => {
+                                    reviews_array.push(Number(element['rating']))
+                                })
+                                let Rating = stats.mean(reviews_array);
+                                let rv_ar = [];
+                                reviews_array.forEach((i) => {
+                                    if (rv_ar.includes(i)) {
+                                        Rating = stats.mode(reviews_array)
+                                        console.log('success')
+                                        console.log(Rating)
+                                    }
+                                    rv_ar.push(i)
+                                    console.log(rv_ar)
+                                })
+                                post.rating = Rating;
+                                console.log(post.rating)
+                                post.save();
+                            }) 
+                        }
+                        Post.findByIdAndUpdate(post_id, { $push: { reviewers_usernames: req.user.username } }, function(err, success) {
+                            if(err) {
+                                console.log(err)
+                            }
+                            User.findById(req.user.id, function(err, user) {
+                                user.reviews_done = user.reviews_done + 1
+                                user.save(function(err) {
+                                    if(err) {
+                                        console.log(err) 
+                                    }
+                                    req.flash('success_msg', 'Your review was submitted');
+                                    res.redirect('/dashboard')
+                                })
                             })
                         })
                     })
+                
                 })
-            
+                console.log(err)
             })
-            console.log(err)
-        })  
-    })) 
+        })) 
+    });
 })
 
 router.get('/profile', ensureAuthenticated, (req, res) => {
@@ -355,21 +381,10 @@ router.get('/profile', ensureAuthenticated, (req, res) => {
 router.post('/results', ensureAuthenticated, (req, res) => {
     const { post_id } = req.body;
     Post.findById(post_id, function(err, post) {
-        const reviews = post.reviews;
-        let reviews_array = [];
-        let rating = stats.mode(reviews_array);
-        reviews.forEach((element) => {
-            reviews_array.push(Number(element['rating']))
-        })
-        if (rating != Number) {
-            rating = stats.mean(reviews_array)
-        }
-        console.log(reviews_array)
-        console.log(rating)
         res.render('results', {
             name: req.user.username,
             post: post,
-            rating: rating
+            rating: post.rating
         })
     })
 })

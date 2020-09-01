@@ -44,6 +44,10 @@ const PostSchema = new mongoose.Schema({
     recommendations: {
         type: Object,
         required: false
+    },
+    rating: {
+        type: Number,
+        default: 0
     }
 })
 
