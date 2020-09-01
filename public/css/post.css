@@ -21,13 +21,13 @@ body {
 
 .nav-item {
     text-decoration: none;
-    color: #F7575D;
+    color: #121212;
     margin-left: 100px;
 }
 
 .nav-item:hover {
     bottom: 3px;
-    border-color: #F7575D;
+    border-color: #121212;
     border-width: 0 0 2px;
     border-style: solid;
 }
@@ -38,8 +38,8 @@ body {
     font-family: 'Lexend Deca';
     height: 60px;
     width:140px;
-    background-color: #FBB5B8;
-    color: #F7575D;
+    background-color: #121212;
+    color: white;
     font-size: 1.5rem;
     border-radius: 10px;
 }
@@ -51,7 +51,7 @@ body {
 }
 
 .card-grid h1 {
-    color: #F7575D;
+    color: #121212;
 }
 
 .card {
@@ -60,21 +60,21 @@ body {
     width: 320px;
     border-style: solid;
     border-radius: 10px;
-    border-color: #F7575D;
+    border-color: #121212;
     padding-top:5px;
     border-width: 1.8px;
     margin-top: 30px;
 }
 
 .card h2 {
-    color: #F7575D;
+    color: #121212;
     font-size: 1.3rem;
     font-weight: normal;
     padding-left: 20px;
 }
 
 .card p {
-    color: #FBB5B8;
+    color: #a2a2a2;
     font-size: 1.1rem;
     font-weight: normal;
     padding-left: 20px;
@@ -88,7 +88,7 @@ body {
 }
 
 .bottom {
-    background-color: #F7575D;
+    background-color: #121212;
     height: 55px;
     width: 312px;
     padding-left: 10px!important;
@@ -111,7 +111,7 @@ body {
 
 .post-div {
     width: 600px;
-    background-color: #F7575D;
+    background-color: #121212;
     margin-top: 90px;
     margin-left: 300px;
     border-radius: 20px;
@@ -166,7 +166,7 @@ body {
     font-family: 'Lexend Deca';
     font-size: 1.3rem;
     border: none;
-    color: #F7575D;
+    color: #121212;
     margin-left:350px;
     text-align: center;
     padding-left: 30px;

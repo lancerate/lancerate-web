@@ -117,7 +117,8 @@ router.post('/register', (req, res) => {
             password,
             name,
             age,
-            gender
+            gender,
+            layout: false
         })
     } else {
         User.findOne({ email: email })
@@ -131,7 +132,8 @@ router.post('/register', (req, res) => {
                         password,
                         name,
                         age,
-                        gender
+                        gender,
+                        layout: false
                     })
                 } else {
                     User.findOne({ username: username })
@@ -145,7 +147,8 @@ router.post('/register', (req, res) => {
                                 password,
                                 name,
                                 age,
-                                gender
+                                gender,
+                                layout: false
                             })
                         } else {
                             const code = randomStr(5, '12345abcde')
@@ -185,6 +188,7 @@ router.post('/register', (req, res) => {
                                         res.render('email-verify', {
                                             email: user.email,
                                             id: user.id,
+                                            layout: false
                                         })
                                     })
                                     .catch(err => console.log(err))
@@ -215,7 +219,8 @@ router.post('/email-verify', (req, res) => {
             res.render('email-verify', {
                 errors,
                 email,
-                id
+                id,
+                layout: false
             })
         }
 
@@ -225,7 +230,8 @@ router.post('/email-verify', (req, res) => {
                 console.log(err)
             }
             res.render('choose-category', {
-                id
+                id,
+                layout: false
             })
         })
     })

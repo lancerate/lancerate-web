@@ -4,16 +4,15 @@
 }
 
 body {
-    background-image: url('../images/bg.png');
+    background-image: url('https://cdn.discordapp.com/attachments/749131929982599238/750363581937090610/unknown.png');
     background-size: cover;
     padding-left: 300px;
 }
 
 .choices {
-    height: 400px;
+    height: 430px;
     width: 600px;
-    background-color: white;
-    opacity: 0.3;
+    background-color: #D6D6D6;
     border-radius: 10px;
     margin-top: 20vh;
     padding-left: 50px;
@@ -35,21 +34,23 @@ body {
     font-family: 'Lexend Deca';
     margin-top: 2rem;
     color: black;
+    height: 20px;
+    width: 20px;
 }
 
 .register-button {
     height: 40px;
     width: 150px;
     display: flex;
-    background-color: white;
+    background-color: #121212;
     font-family: 'Lexend Deca';
     font-size: 1.3rem;
     border: none;
-    color: #F7575D;
+    color: white;
     margin-left:450px;
     text-align: center;
     padding-left: 30px;
-    padding-top: 5px;
+    padding-top: 7px;
 }
 
 #login-button {

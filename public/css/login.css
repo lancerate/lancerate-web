@@ -4,13 +4,13 @@
 }
 
 body {
-    background-image: url('../images/bg.png');
+    background-image: url('https://cdn.discordapp.com/attachments/749131929982599238/750363581937090610/unknown.png');
     background-size: cover;
     padding-left: 300px;
 }
 
 .login-div p {
-    color: white;
+    color: #121212;
     font-family: 'Lexend Deca';
     font-size: 1.2rem;
     margin-top: -15px;
@@ -23,14 +23,13 @@ body {
 .login-div h1 {
     font-family: 'Airbnb';
     font-size: 3rem; 
-    color: white;
+    color: #121212;
 }
 
 .login-div input {
     height: 50px;
     width: 400px;
-    background-color: white;
-    opacity: 0.3;
+    background-color:#E6E6E6 ;
     border: none;
     font-family: 'Lexend Deca';
     font-size: 1.5rem;
@@ -43,11 +42,11 @@ body {
     height: 40px;
     width: 150px;
     display: flex;
-    background-color: white;
+    background-color: #121212;
     font-family: 'Lexend Deca';
     font-size: 1.3rem;
     border: none;
-    color: #F7575D;
+    color: white;
     margin-left:250px;
     text-align: center;
     padding-left: 45px;
@@ -64,8 +63,8 @@ body {
     font-family: 'Lexend Deca';
     font-size: 1rem;
     border: none;
-    background-color: white;
-    opacity: 0.3;
+    background-color: #E6E6E6;
+    color: #757575;
     margin-left:100px;
     padding-left: 10px;
     padding-top: 5px;

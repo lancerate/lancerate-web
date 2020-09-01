@@ -21,13 +21,13 @@ body {
 
 .nav-item {
     text-decoration: none;
-    color: #F7575D;
+    color: #121212;
     margin-left: 100px;
 }
 
 .nav-item:hover {
     bottom: 3px;
-    border-color: #F7575D;
+    border-color: #121212;
     border-width: 0 0 2px;
     border-style: solid;
 }
@@ -38,8 +38,8 @@ body {
     font-family: 'Lexend Deca';
     height: 60px;
     width:140px;
-    background-color: #FBB5B8;
-    color: #F7575D;
+    background-color: #121212;
+    color: white;
     font-size: 1.5rem;
     border-radius: 10px;
 }
@@ -48,7 +48,7 @@ body {
     margin-left: 190px;
     margin-top: 90px;
     font-family: 'Lexend Deca';
-    color: #F7575D;
+    color: #121212;
     font-size: 3rem;
     font-weight: normal;
 }
@@ -60,10 +60,10 @@ table {
 
 table {
     border-style: solid;
-    border-color: #F7575D;
+    border-color: #121212;
     border-radius: 10px;
     font-family: 'Lexend Deca';
-    color: #F7575D;
+    color: #121212;
   }
 
 th {

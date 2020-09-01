@@ -21,13 +21,13 @@ body {
 
 .nav-item {
     text-decoration: none;
-    color: #F7575D;
+    color: #121212;
     margin-left: 100px;
 }
 
 .nav-item:hover {
     bottom: 3px;
-    border-color: #F7575D;
+    border-color: #121212;
     border-width: 0 0 2px;
     border-style: solid;
 }
@@ -38,8 +38,8 @@ body {
     font-family: 'Lexend Deca';
     height: 60px;
     width:140px;
-    background-color: #FBB5B8;
-    color: #F7575D;
+    background-color: #121212;
+    color: white;
     font-size: 1.5rem;
     border-radius: 10px;
 }
@@ -51,7 +51,7 @@ body {
 }
 
 .card-grid h1 {
-    color: #F7575D;
+    color: #121212;
 }
 
 .card {
@@ -60,21 +60,21 @@ body {
     width: 340px;
     border-style: solid;
     border-radius: 10px;
-    border-color: #F7575D;
+    border-color: #121212;
     padding-top:5px;
     border-width: 1.8px;
     margin-top: 30px;
 }
 
 .card h2 {
-    color: #F7575D;
+    color: #121212;
     font-size: 1.3rem;
     font-weight: normal;
     padding-left: 20px;
 }
 
 .card p {
-    color: #FBB5B8;
+    color: #a3a3a3;
     font-size: 1.1rem;
     font-weight: normal;
     margin-top: -15px;
@@ -93,15 +93,16 @@ body {
     height: 450px;
     margin-top: 150px;
     width: 80%;
-    background-color: #FBB5B8;
+    background-color: #121212;
     border-radius: 20px;
+    color: white;
 }
 
 .profile-div img {
-    height: 180px;
+    height: 190px;
     width:200px;
     border-radius: 50%;
-    margin-left: 40%;
+    margin-left: 42%;
     margin-top: 2rem;
 }
 
@@ -117,28 +118,30 @@ body {
     font-family: 'Lexend Deca';
     font-size:1.5rem;
     font-weight: normal;
+    color: #a3a3a3;
     margin-top: -20px;
-    color: #F87277;
 }
 
 .profile-div button {
-    margin-left: 41%;
     height: 40px;
     width: 200px;
     font-family: 'Lexend Deca';
     font-size:1.5rem;
     font-weight: normal;
     margin-top: -10px;
-    color: #F87277;
+    color: white;
     background-color: transparent;
     border-style: solid;
-    border-color: #F87277;
+    border-color: white;
     border-width: 2px;
     border-radius: 5px;
+    padding-bottom: -10px;
+    margin-left: 43%;
+    cursor: pointer;
 }
 
 .bottom {
-    background-color: #F7575D;
+    background-color: #121212;
     height: 55px;
     width: 332px;
     padding-left: 10px!important;
@@ -157,6 +160,7 @@ body {
     background-color: white;
     opacity: 0.3;
     font-size: 1.3rem;
+    cursor: pointer;
 }
 
 .logout {
@@ -166,7 +170,8 @@ body {
     height: 60px;
     width:140px;
     background-color: #FBB5B8;
-    color: #F7575D;
+    color: #121212;
     font-size: 1.5rem;
     border-radius: 10px;
 }
+
