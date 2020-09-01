@@ -357,7 +357,7 @@ router.post('/results', ensureAuthenticated, (req, res) => {
 })
 
 router.get('/leaderboard', ensureAuthenticated, (req, res) => {
-    User.find({'status':'verified'}, function(err, users) {
+    User.find({'status':'verified'}).sort({'reviews_done': -1}).exec( function(err, users) {
         res.render('leaderboard', {
             users: users
         })
