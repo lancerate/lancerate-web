@@ -6,7 +6,7 @@ const bcrypt = require('bcryptjs')
 const passport = require('passport')
 const { ensureAuthenticated } = require('../config/auth');
 const nodemailer = require('nodemailer')
-const consCriticism = require('../config/constructiveCriticismAlgo')
+let consCriticism = require('../config/constructiveCriticismAlgo')
 const stats = require('stats-lite')
 
 const transporter = nodemailer.createTransport({
@@ -284,37 +284,40 @@ router.post('/post', ensureAuthenticated, (req, res) => {
 })
 
 router.post('/rate', ensureAuthenticated, (req, res) => {
-    const { post_id, rating } = req.body
-    Post.findById(post_id, function(err, post) {
-        post.reviewers ++
-        post.save(function (err) {
-            if(err) {
-                console.log(err)
-            }
-            Post.findByIdAndUpdate(post_id, { $push: { reviews: {'username': req.user.username, 'rating': rating }  } }, function(err, success) {
+    const { post_id, rating, recommendation } = req.body
+    consCriticism(recommendation).then((recommendation => {
+        console.log(recommendation)
+        Post.findById(post_id, function(err, post) {
+            post.reviewers ++
+            post.save(function (err) {
                 if(err) {
                     console.log(err)
                 }
-                Post.findByIdAndUpdate(post_id, { $push: { reviewers_usernames: req.user.username } }, function(err, success) {
+                Post.findByIdAndUpdate(post_id, { $push: { reviews: {'username': req.user.username, 'rating': rating }, recommendations: {'username': req.user.username, 'recommendation': recommendation}  } }, function(err, success) {
                     if(err) {
                         console.log(err)
                     }
-                    User.findById(req.user.id, function(err, user) {
-                        user.reviews_done = user.reviews_done + 1
-                        user.save(function(err) {
-                            if(err) {
-                                console.log(err) 
-                            }
-                            req.flash('success_msg', 'Your review was submitted');
-                            res.redirect('/dashboard')
+                    Post.findByIdAndUpdate(post_id, { $push: { reviewers_usernames: req.user.username } }, function(err, success) {
+                        if(err) {
+                            console.log(err)
+                        }
+                        User.findById(req.user.id, function(err, user) {
+                            user.reviews_done = user.reviews_done + 1
+                            user.save(function(err) {
+                                if(err) {
+                                    console.log(err) 
+                                }
+                                req.flash('success_msg', 'Your review was submitted');
+                                res.redirect('/dashboard')
+                            })
                         })
                     })
                 })
-            })
             
-        })
-        console.log(err)
-    })
+            })
+            console.log(err)
+        })  
+    })) 
 })
 
 router.get('/profile', ensureAuthenticated, (req, res) => {
@@ -348,13 +351,19 @@ router.post('/results', ensureAuthenticated, (req, res) => {
     Post.findById(post_id, function(err, post) {
         const reviews = post.reviews;
         let reviews_array = [];
+        let rating = stats.mode(reviews_array);
         reviews.forEach((element) => {
-            reviews_array.push(Number(element['value']))
+            reviews_array.push(Number(element['rating']))
         })
+        if (rating != Number) {
+            rating = stats.mean(reviews_array)
+        }
+        console.log(reviews_array)
+        console.log(rating)
         res.render('results', {
             name: req.user.username,
             post: post,
-            rating: stats.mode(reviews_array)
+            rating: rating
         })
     })
 })
@@ -372,6 +381,17 @@ router.post('/rate-portfolio', ensureAuthenticated, (req, res) => {
     res.render('rate-portfolio', {
         post_id: post_id
     })
+})
+
+router.get('/users/:username', async (req, res) => {
+    const user = await User.findOne({ 'username': req.params.username});
+    if (user.badge) {
+        res.send('yes')
+        res.render('badge', {user: user, layout: false})
+    }
+    else {
+        res.sendStatus(404)
+    }
 })
 
 module.exports = router;

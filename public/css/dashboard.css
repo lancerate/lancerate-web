@@ -108,3 +108,11 @@ body {
     opacity: 0.3;
     font-size: 1.3rem;
 }
+
+.bottom button :hover{
+    cursor: pointer;
+}
+
+.card a {
+    color: #F7575D
+}

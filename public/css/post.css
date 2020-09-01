@@ -110,7 +110,6 @@ body {
 }
 
 .post-div {
-    height: 730px;
     width: 600px;
     background-color: #F7575D;
     margin-top: 90px;
@@ -118,6 +117,7 @@ body {
     border-radius: 20px;
     padding-left:50px;
     padding-top:20px;
+    padding-bottom: 50px;
 }
 
 .post-div h1 {

@@ -7,7 +7,7 @@
     <input type="hidden" name="post_id" value="<%- post_id %>">
     <input required style="width: 250px" name="rating" type="number" min="0" value="<%= typeof value != 'undefined' ? value : '' %>">
     <h2>What would you like to recommend to this user?</h2>
-    <input required style="width: 250px" name="recommendation" type="number" min="0" value="<%= typeof value != 'undefined' ? value : '' %>">
+    <input required style="width: 250px" name="recommendation" type="text" value="<%= typeof value != 'undefined' ? value : '' %>">
     <button class="login-button" type="submit">SUBMIT</button>
 </form>
 </div>

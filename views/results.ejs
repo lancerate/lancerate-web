@@ -2,14 +2,14 @@
 <link rel="stylesheet" href="/css/dashboard.css">
 <div class="card-grid">
   <div class="card" style="height: 452px;">
-    <h2>Message</h2><br>
+    <h2>Message</h2>
     <p><%- post.message %></p>
-    <h2>Portfolio</h2><br>
-    <p>Please review my portfolio at<br> <%- post.portfolio_link %></p>
-    <h2>Reviewers</h2><br>
+    <h2>Portfolio</h2>
+    <p>Please review my portfolio at<br> <a href="<%- post.portfolio_link %>"><%- post.portfolio_link %></p></a>
+    <h2>Reviewers</h2>
     <p><%- post.reviewers %> reviewed your portfolio.</p>
-    <h2>Value</h2><br>
-    <p>Your hourly rate given by <%- post.reviewers %> users is <span style="color:black"><%- rating %></span> </p>
+    <h2>Value</h2>
+    <p>Your hourly rate given by <%- post.reviewers %> users is <span style="color:black"> $<%- rating %>/hr</span></p>
     <div class="bottom" style="margin-top: 0px"> 
       <a target="_blank" href="<%- post.portfolio_link %>"><button style="margin-left:80px">Review</button></a>
     </div>
