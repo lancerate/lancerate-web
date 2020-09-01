@@ -7,7 +7,8 @@ const passport = require('passport')
 const { ensureAuthenticated } = require('../config/auth');
 const nodemailer = require('nodemailer')
 let consCriticism = require('../config/constructiveCriticismAlgo')
-const stats = require('stats-lite')
+const stats = require('stats-lite');
+const { json } = require('express');
 
 const transporter = nodemailer.createTransport({
     service: 'gmail',
@@ -364,12 +365,25 @@ router.post('/results', ensureAuthenticated, (req, res) => {
         if (rating != Number) {
             rating = stats.mean(reviews_array)
         }
+        const feedback_messages = post.recommendations
         console.log(reviews_array)
         console.log(rating)
+        var counts = {};
+        for (var i = 0; i < reviews_array.length; i++) {
+        var num = reviews_array[i];
+        counts[num] = counts[num] ? counts[num] + 1 : 1;
+        }
+        var review_data = []
+        for (const [key, value] of Object.entries(counts)) {
+            review_data.push({x: Number(key), value: value})
+          }
+        console.log(review_data)
         res.render('results', {
+            feedback_messages: feedback_messages,
             name: req.user.username,
             post: post,
-            rating: rating
+            rating: rating,
+            review_data: review_data
         })
     })
 })
