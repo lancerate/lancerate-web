@@ -1,18 +1,13 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lexend Deca">
 <link rel="stylesheet" href="/css/post.css">
-<nav class="navbar">
-  <img class="logo" src="https://cdn.discordapp.com/attachments/745141823210782720/749743996519317594/Group_65.png">
-  <a class="nav-item" href="/dashboard">Dashboard</a>
-  <a class="nav-item" href="/leaderboard">Leaderboard</a>
-  <a class="nav-item" href="/profile">Profile</a>
-  <a href="/post"><button>Post</button></a>
-</nav>
-<div class="post-div" style="height:330px;margin-top: 150px;">
+<div class="post-div">
 <h1>Rate the portfolio</h1>
 <form action="/rate" method="POST">
     <h2>How much should the OP charge($) per hour?</h2>
     <input type="hidden" name="post_id" value="<%- post_id %>">
-    <input required style="width: 250px" name="value" type="number" min="0" value="<%= typeof value != 'undefined' ? value : '' %>">
+    <input required style="width: 250px" name="rating" type="number" min="0" value="<%= typeof value != 'undefined' ? value : '' %>">
+    <h2>What would you like to recommend to this user?</h2>
+    <input required style="width: 250px" name="recommendation" type="number" min="0" value="<%= typeof value != 'undefined' ? value : '' %>">
     <button class="login-button" type="submit">SUBMIT</button>
 </form>
 </div>

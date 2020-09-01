@@ -29,11 +29,6 @@ const PostSchema = new mongoose.Schema({
         type: Number,
         required: false
     },
-    value: {
-        type: Number,
-        required: false,
-        default: 0
-    },
     reviewers_usernames: {
         type: Array,
         required: false
@@ -46,6 +41,10 @@ const PostSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     },
+    recommendations: {
+        type: Object,
+        required: false
+    }
 })
 
 const Post = mongoose.model('Post', PostSchema);

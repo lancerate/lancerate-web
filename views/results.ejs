@@ -1,12 +1,5 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lexend Deca">
 <link rel="stylesheet" href="/css/dashboard.css">
-<nav class="navbar">
-  <img class="logo" src="https://cdn.discordapp.com/attachments/745141823210782720/749743996519317594/Group_65.png">
-  <a class="nav-item" href="/dashboard">Dashboard</a>
-  <a class="nav-item" href="/leaderboard">Leaderboard</a>
-  <a class="nav-item" href="/profile">Profile</a>
-  <a href="/post"><button>Post</button></a>
-</nav>
 <div class="card-grid">
   <div class="card" style="height: 452px;">
     <h2>Message</h2><br>
@@ -16,7 +9,7 @@
     <h2>Reviewers</h2><br>
     <p><%- post.reviewers %> reviewed your portfolio.</p>
     <h2>Value</h2><br>
-    <p>The average of all the values given by <%- post.reviewers %> users is <span style="color:black"><%- avg_value %></span> </p>
+    <p>Your hourly rate given by <%- post.reviewers %> users is <span style="color:black"><%- rating %></span> </p>
     <div class="bottom" style="margin-top: 0px"> 
       <a target="_blank" href="<%- post.portfolio_link %>"><button style="margin-left:80px">Review</button></a>
     </div>

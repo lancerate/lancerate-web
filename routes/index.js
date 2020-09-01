@@ -6,6 +6,8 @@ const bcrypt = require('bcryptjs')
 const passport = require('passport')
 const { ensureAuthenticated } = require('../config/auth');
 const nodemailer = require('nodemailer')
+const consCriticism = require('../config/constructiveCriticismAlgo')
+const stats = require('stats-lite')
 
 const transporter = nodemailer.createTransport({
     service: 'gmail',
@@ -87,9 +89,9 @@ router.get('/dashboard', ensureAuthenticated, (req, res) => {
     
 
 
-router.get('/login', (req, res) => res.render('login'));
+router.get('/login', (req, res) => res.render('login', {layout: false}));
 
-router.get('/register', (req, res) => res.render('register'));
+router.get('/register', (req, res) => res.render('register', {layout: false}));
 
 router.post('/register', (req, res) => {
     const { username, email, password, name, age, gender } = req.body;
@@ -282,17 +284,14 @@ router.post('/post', ensureAuthenticated, (req, res) => {
 })
 
 router.post('/rate', ensureAuthenticated, (req, res) => {
-    const { post_id, value } = req.body
+    const { post_id, rating } = req.body
     Post.findById(post_id, function(err, post) {
-        post.reviewers = post.reviewers + 1
-        const n_reviewers = post.reviewers
-        const old_value = post.value
-        post.value = Number(old_value) + Number(value)
+        post.reviewers ++
         post.save(function (err) {
             if(err) {
                 console.log(err)
             }
-            Post.findByIdAndUpdate(post_id, { $push: { reviews: {'username': req.user.username, 'value': value }  } }, function(err, success) {
+            Post.findByIdAndUpdate(post_id, { $push: { reviews: {'username': req.user.username, 'rating': rating }  } }, function(err, success) {
                 if(err) {
                     console.log(err)
                 }
@@ -347,11 +346,15 @@ router.get('/profile', ensureAuthenticated, (req, res) => {
 router.post('/results', ensureAuthenticated, (req, res) => {
     const { post_id } = req.body;
     Post.findById(post_id, function(err, post) {
-        const avg_value = Number(post.value)/Number(post.reviewers)
+        const reviews = post.reviews;
+        let reviews_array = [];
+        reviews.forEach((element) => {
+            reviews_array.push(Number(element['value']))
+        })
         res.render('results', {
             name: req.user.username,
             post: post,
-            avg_value: Math.trunc(avg_value)
+            rating: stats.mode(reviews_array)
         })
     })
 })
