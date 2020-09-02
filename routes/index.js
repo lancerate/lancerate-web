@@ -426,10 +426,13 @@ router.post('/rate-portfolio', ensureAuthenticated, (req, res) => {
     })
 })
 
+router.get('/badge', (req, res) => {
+    res.render('badge', {layout: false})
+})
+
 router.get('/users/:username', async (req, res) => {
     const user = await User.findOne({ 'username': req.params.username});
     if (user.badge) {
-        res.send('yes')
         res.render('badge', {user: user, layout: false})
     }
     else {
