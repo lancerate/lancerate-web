@@ -426,18 +426,17 @@ router.post('/rate-portfolio', ensureAuthenticated, (req, res) => {
     })
 })
 
-router.get('/badge', (req, res) => {
-    res.render('badge', {layout: false})
-})
-
 router.get('/users/:username', async (req, res) => {
     const user = await User.findOne({ 'username': req.params.username});
-    if (user.badge) {
-        res.render('badge', {user: user, layout: false})
-    }
-    else {
-        res.sendStatus(404)
-    }
+    postId = user.badge[0]
+    Post.findById(postId, (err, post) => {
+        if (user.badge[0]) {
+            res.render('badge', {user: user, layout: false, post: post})
+        }
+        else {
+            res.sendStatus(404)
+        }
+    })
 })
 
 module.exports = router;

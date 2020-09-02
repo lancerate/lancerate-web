@@ -47,8 +47,8 @@ const UserSchema = new mongoose.Schema({
         default: Date.now
     },
     badge: {
-        type: Boolean,
-        default: false
+        type: Array,
+        required: true
     },
     premium: {
         type: Boolean,
@@ -56,7 +56,7 @@ const UserSchema = new mongoose.Schema({
     },
     ratingData: {
         type: Object,
-        required: true
+        default: {}
     },
     reputation: {
         type: Number,

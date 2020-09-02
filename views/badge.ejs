@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lexend Deca">
 <link rel="stylesheet" type="text/css" href="/css/badge.css" />
 <div>
-    <p>Hey! Just wanted to let you <br> know that <span style="color: black">10,000 people</span> have <br> told us that Rachit Gupta <br>deserves <span style="color: black">atleast $26.00/hr</span>.</p>
+    <p>Hey! Just wanted to let you <br> know that <span style="color: black"><%- post.reviewers %> people</span> have <br> told us that <%- user.name %> <br>deserves <span style="color: black">atleast $<%- post.rating%>/hr</span>.</p>
     <img src="https://cdn.discordapp.com/attachments/749131929982599238/750569597912219648/unknown.png"><br>
-    <p id="small-text">you can check their portfolio at <a style="color: black" href="https://rachitgupta.co">https://rachitgupta.co</a></p>
+    <p id="small-text">you can check their portfolio at <a style="color: black" href="<%- post.portfolio_link%>"><%- post.portfolio_link%></a></p>
 </div>
