@@ -1,25 +1,30 @@
-## Lancerate
-A verification system for freelancers to know the ideal amount they should charge for their services. 1000s of people are going to anonymously review the freelancer’s portfolio and then rate it. This way, freelancers can then be sure of their hourly rate.
-<br>
+# Lancerate
+A crowdsourced verification system for freelancers to know the ideal amount they should charge for their services. Thousands of freelancers of the same field review and rate each other's portfolios which helps a freelancer to be certain of the hourly rate of his/her services. The reviewers in turn get ranked on a leaderboard wherein the person with the max reputation at the end of the week gets rewards such as Amazon vouchers and/or Paytm credits etc.
 
-### Features:
+## Features
+- Select your categories of interest and post your portfolio(s) to get reviewed
+- Rate and comment on others' portfolios<br/>
+Insensitive comments automatically get filtered out by our constructive criticism algorithm.
+- Real-time updates on your profile to estimate your rate accurately
+- View the weekly leaderboard which ranks users by the "reputation" they earned over the week
+- Use our voluntary badge embed on Upwork, Fiverr etc. as a validation method for your rate to your clients
 
-- Post your portfolios for review.
-- Rate other portfolios and can also leave recommendations.
-- Categorizes portfolios for review based on the chosen interested categories.
-- View the results of the ratings and recommendations reieved on their portfolios.
-- View the leaderboard in which they are ranked on the basis of the number of portfolios they have rated.
-- Use our badge embed on their portfolio websites.
+## Screenshots
+|Profile|Register|
+|---------|--------|
+|<img src="https://cdn.discordapp.com/attachments/762543511433773087/765281632475021342/unknown.png" width="500" height="275"/>|<img src="https://cdn.discordapp.com/attachments/762543511433773087/765281789399924816/unknown.png" width="500" height="275"/>|
 
+|Dashboard|Badge Embed|
+|---------|-----------|
+|<img src="https://cdn.discordapp.com/attachments/762543511433773087/765281447245250573/unknown.png" width="500" height="275"/>|<img src="https://cdn.discordapp.com/attachments/762543511433773087/765281862921879553/unknown.png"/>
 
-### Demo creds:
+## Getting Started
+```bash
+$ git clone https://github.com/lancerate/lancerate-web
+$ npm install
+$ npm run dev
+```
 
-<b>username</b>: anshulsaha <br>
-<b>password</b>: anshul15
-
-### Run locally
-
-to test locally use `npm run dev`
-
-### Video
-[![Watch the video](https://img.youtube.com/vi/sXjOBu7cnfQ/hqdefault.jpg)](https://youtu.be/sXjOBu7cnfQ)
+Or you if you prefer, [head over to the app](https://lancerate.herokuapp.com) directly with the demo credentials:<br/>
+**Username**: anshulsaha<br/>
+**Password**: anshul15
