@@ -135,26 +135,24 @@ body {
 .post-div input {
     height: 50px;
     width: 500px;
-    background-color: white;
-    opacity: 0.3;
+    background-color: #595959;
     border: none;
     padding-left: 30px;
     font-family: 'Lexend Deca';
     font-size: 1.5rem;
-    color: black;
+    color: white;
     border-radius: 5px;
 }
 
 .post-div select {
     height: 50px;
     width: 500px;
-    background-color: white;
-    opacity: 0.3;
+    background-color: #595959;
     border: none;
     padding-left: 30px;
     font-family: 'Lexend Deca';
     font-size: 1.5rem;
-    color: black;
+    color: white;
     border-radius: 5px;
 }
 
